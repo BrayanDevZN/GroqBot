@@ -36,6 +36,8 @@ jobs:
             
               env:
                 test: ${{ secrets.TEST }}
+                brapi_key: ${{ secrets.BRAPI_KEY }}
+                groq_key: ${{ secrets.GROQ_KEY }}
 
             - name: install depends
               run: pip install -r requirements.txt
@@ -43,6 +45,7 @@ jobs:
             - name: execute
               run: |
                python -m tests.redis
+               python -m tests.brapi
 
 
 

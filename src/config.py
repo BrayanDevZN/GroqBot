@@ -14,7 +14,7 @@ else:
     load_dotenv(BASE_DIR)
 
 
-REQUIRED_NAMES = ["groq_key", "telegram_token"]
+REQUIRED_NAMES = ["groq_key",  "brapi_key"]
 SETTINGS = {}
 for name in REQUIRED_NAMES:
 
@@ -26,7 +26,7 @@ for name in REQUIRED_NAMES:
     SETTINGS[name] = env 
 
 
-NAMES = ["redis_port", "redis_host", "redis_password", "test"]
+NAMES = ["redis_port", "redis_host", "redis_password", "test", "telegram_token"]
 for name in NAMES:
     env = os.getenv(name)
     SETTINGS[name] = env
