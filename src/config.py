@@ -11,7 +11,7 @@ if  os.path.exists(BASE_DIR / ".env"):
     load_dotenv(BASE_DIR / ".env")
 
 else:
-    load_dotenv(BASE_DIR)
+    load_dotenv()
 
 
 REQUIRED_NAMES = ["brapi_key"]
