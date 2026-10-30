@@ -14,9 +14,9 @@ else:
     load_dotenv(BASE_DIR)
 
 
-NAMES = ["groq_key", "telegram_token"]
+REQUIRED_NAMES = ["groq_key", "telegram_token"]
 SETTINGS = {}
-for name in NAMES:
+for name in REQUIRED_NAMES:
 
     env = os.getenv(name)
 
@@ -24,6 +24,13 @@ for name in NAMES:
         raise NotFoundEnv(f"Expeted env {name}")
 
     SETTINGS[name] = env 
+
+
+NAMES = ["redis_port", "redis_host", "redis_password"]
+for name in NAMES:
+    env = os.getenv(name)
+    SETTINGS[name] = env
+
 
 
 
