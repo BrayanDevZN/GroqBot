@@ -26,7 +26,7 @@ for name in REQUIRED_NAMES:
     SETTINGS[name] = env 
 
 
-NAMES = ["redis_port", "redis_host", "redis_password"]
+NAMES = ["redis_port", "redis_host", "redis_password", "test"]
 for name in NAMES:
     env = os.getenv(name)
     SETTINGS[name] = env
