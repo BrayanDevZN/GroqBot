@@ -1,6 +1,6 @@
 "Teste de brapi"
 
-from src.tools.brapi import BrapiTool
+from src.brapi import BrapiTool
 import asyncio
 
 async def test_brapi() -> None:
