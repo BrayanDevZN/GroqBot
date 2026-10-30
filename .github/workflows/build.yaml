@@ -26,6 +26,10 @@ jobs:
                     - 6379:6379
 
         environment: test
+        env:
+                test: ${{ secrets.TEST }}
+                brapi_key: ${{ secrets.BRAPI_KEY }}
+                groq_key: ${{ secrets.GROQ_KEY }}
 
         steps:
 
@@ -34,10 +38,7 @@ jobs:
             - uses: actions/setup-python@v5
 
             
-              env:
-                test: ${{ secrets.TEST }}
-                brapi_key: ${{ secrets.BRAPI_KEY }}
-                groq_key: ${{ secrets.GROQ_KEY }}
+
 
             - name: install depends
               run: pip install -r requirements.txt
