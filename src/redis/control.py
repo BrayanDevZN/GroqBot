@@ -23,7 +23,7 @@ class RedisManage(RedisConnection):
 
                 async with self.client.pipeline(transaction=True) as client:
 
-                    client.watch(name)
+                    await client.watch(name)
                     client.multi()
                     client.rpush(name, value) if not isinstance(value, list) else client.rpush(name, *value)
 
@@ -31,7 +31,7 @@ class RedisManage(RedisConnection):
 
                         client.expire(name=name, time=expires)
 
-                    client.execute()
+                    await client.execute()
 
                     logger.success(f"Inserted in {name} with sucess")
 
@@ -55,12 +55,12 @@ class RedisManage(RedisConnection):
 
                 async with self.client.pipeline(transaction=True) as client:
 
-                    client.watch(name)
+                    await client.watch(name)
                     client.multi()
                     client.lrange(name=name, start=start, end=end)
                     
                    
-                    result = client.execute()
+                    result = await client.execute()
 
                     return result[0]
 
@@ -78,8 +78,8 @@ class RedisManage(RedisConnection):
 
             async with self.client.pipeline() as client:
 
-                client.delete(name=name)
-                client.execute()
+                client.delete(name)
+                await client.execute()
 
         except Exception as error:
 

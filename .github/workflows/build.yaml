@@ -1,0 +1,46 @@
+name: build
+
+on:
+
+    push:
+
+        branches:
+            - main
+    
+    pull_request:
+        branches:
+            - main
+
+jobs:
+
+    build:
+
+        runs-on: ubuntu-latest
+
+        services:
+
+            image: redis:alpine
+            ports:
+                6379:6379
+
+        environment: test
+
+        steps:
+
+            - uses: actions/checout@v4
+
+            - uses: actions/setup-python@v5
+
+            
+              env:
+                test: ${{ secrets.TEST }}
+
+            - name: execute
+              run: |
+               python -m tests.redis
+
+
+
+
+
+
