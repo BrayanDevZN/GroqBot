@@ -37,6 +37,9 @@ jobs:
               env:
                 test: ${{ secrets.TEST }}
 
+            - name: install depends
+              run: pip install -r requirements.txt
+
             - name: execute
               run: |
                python -m tests.redis
