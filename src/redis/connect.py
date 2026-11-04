@@ -2,15 +2,15 @@
 
 from redis.asyncio import Redis
 from src.logs import logger
-
+from src.config import SETTINGS
 class RedisConnection:
 
-    def __init__(self, host:str|None=None, port:str|int|None=None, password:str|None=None, test:bool=False)->None:
+    def __init__(self)->None:
 
-        self.host = host 
-        self.port = port 
-        self.password = password
-        self.test = test
+        self.host = SETTINGS["redis_host"]
+        self.port = SETTINGS["redis_port"]
+        self.password = SETTINGS["redis_password"]
+        self.test = SETTINGS["test"]
 
     #Define oq as variaveis vão ser se forem None
     def _set_default(self) -> None:

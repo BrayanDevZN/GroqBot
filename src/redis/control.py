@@ -1,17 +1,10 @@
 "Faz as operações com redis"
 from .connect import logger, RedisConnection
-
 from redis import WatchError
 
 class RedisManage(RedisConnection):
 
-    def __init__(self, host:str|None = None, port:str|int|None = None, 
-                 password:str|None = None, test:bool = False)->None:
-
-        super().__init__(host, port, password, test)
-
-       
-
+  
     #Insere na lsita
     async def insert(self, name:str, value:list|dict, expires: int|None = None) -> None:
 
