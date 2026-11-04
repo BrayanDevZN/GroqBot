@@ -13,7 +13,7 @@ class MemoryTool(RedisManage):
         """Serve pra pegar o historico de conversa de um range especifico, o parametro name é o nome da chave do redis, 
         o start é onde começa o range das conversas, o end é onde termina"""
 
-        result = await self.get_memory(name, start, end)
+        result = await self.get_range(name, start, end)
 
         return result 
 

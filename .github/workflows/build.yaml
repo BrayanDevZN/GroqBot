@@ -48,6 +48,7 @@ jobs:
                python -m tests.redis
                python -m tests.brapi
                python -m tests.tools
+               python -m tests.prompt
 
 
 
