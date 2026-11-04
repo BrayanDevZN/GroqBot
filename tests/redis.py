@@ -5,7 +5,7 @@ import asyncio
 
 async def test_redis() -> None:
 
-    redis = RedisManage(test=True)
+    redis = RedisManage()
 
     await redis.connect()
 
